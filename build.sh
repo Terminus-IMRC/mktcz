@@ -20,15 +20,24 @@ if echo $PKGDIR | fgrep -q /; then
 	exit 1
 fi
 
-rm -rf $PKGDIR
-tar xf $PKGTARGZ
+if ! test -d $PKGDIR; then
+	tar xf $PKGTARGZ
+fi
 cd $PKGDIR
 
-./configure $CONFIGURE_OPTS >log.c.1 2>log.c.2
-make $MAKE_OPTS >log.m.1 2>log.m.2
-rm -rf ../dest
-mkdir -p ../dest
-make install DESTDIR=../dest
+if ! test -f log.c.done; then
+	rm -f log.m.done
+	./configure $CONFIGURE_OPTS >log.c.1 2>log.c.2
+	touch log.c.done
+fi
+
+if ! test -f log.m.done; then
+	make $MAKE_OPTS >log.m.1 2>log.m.2
+	rm -rf ../dest
+	mkdir -p ../dest
+	make install DESTDIR=$PWD/../dest
+	touch log.m.done
+fi
 
 cd ../dest
 find * -not -type d >../$TCZNAME.tcz.list
