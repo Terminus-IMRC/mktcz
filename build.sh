@@ -50,6 +50,7 @@ sed -i "s/XXXXX/$(\du -h $TCZNAME.tcz | awk '{print $1}')/" $TCZNAME.tcz.info
 
 md5sum $TCZNAME.tcz >$TCZNAME.tcz.md5.txt
 
+rm -rf $TCZNAME.tcz.zsync
 zsyncmake $TCZNAME.tcz
 
 rm -f $TCZNAME.tar.gz
