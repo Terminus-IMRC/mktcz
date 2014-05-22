@@ -2,7 +2,7 @@
 TCZNAME=openmpi
 PKGTARGZ=openmpi-1.8.1.tar.gz
 PKGDIR=$(basename "$PKGTARGZ" .tar.gz)
-CONFIGURE_OPTS='--prefix=/usr/local CFLAGS=-march=armv6'
+CONFIGURE_OPTS='--prefix=/usr/local CFLAGS="-Os -pipe" CXXFLAGS="-Os -pipe" LDFLAGS="-Wl,-O1"'
 MAKE_OPTS=''
 
 if ! test -f $TCZNAME.tcz.info; then
