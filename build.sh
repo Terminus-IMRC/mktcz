@@ -35,7 +35,7 @@ if ! test -f log.m.done; then
 	make $MAKE_OPTS >log.m.1 2>log.m.2
 	rm -rf ../dest
 	mkdir -p ../dest
-	make install DESTDIR=$PWD/../dest
+	make install DESTDIR=$PWD/../dest >log.mi.1 2>log.mi.2
 	touch log.m.done
 fi
 
