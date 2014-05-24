@@ -40,6 +40,14 @@ if ! test -f log.m.done; then
 fi
 
 cd ../dest
+
+#TODO: smarter way needed
+for f in $(find . -not -type d); do
+	if file $f | grep executable -q; then
+		strip --strip-all $f
+	fi
+done
+
 find * -not -type d >../$TCZNAME.tcz.list
 cd ..
 
