@@ -62,6 +62,6 @@ rm -rf $TCZNAME.tcz.zsync
 zsyncmake $TCZNAME.tcz
 
 rm -f $TCZNAME.tar.gz
-tar czf $TCZNAME.tar.gz $TCZNAME.tcz $TCZNAME.tcz.info $TCZNAME.tcz.list $TCZNAME.tcz.md5.txt $TCZNAME.tcz.zsync $PKGTARGZ $0
+tar czf $TCZNAME.tar.gz $TCZNAME.tcz $TCZNAME.tcz.info $TCZNAME.tcz.list $TCZNAME.tcz.md5.txt $TCZNAME.tcz.zsync $(test -f "$TCZNAME.tcz.dep" && echo $TCZNAME.tcz.dep || echo) $PKGTARGZ $0
 
 #echo -e 'tinycore\ntinycore' | bcrypt $NAME.tar.gz
