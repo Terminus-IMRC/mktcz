@@ -27,12 +27,20 @@ cd $PKGDIR
 
 if ! test -f log.c.done; then
 	rm -f log.m.done
-	./configure $CONFIGURE_OPTS >log.c.1 2>log.c.2
+	if test -n "$CONFIGURE_OPTS"; then
+		./configure "$CONFIGURE_OPTS"
+	else
+		./configure
+	fi >log.c.1 2>log.c.2
 	touch log.c.done
 fi
 
 if ! test -f log.m.done; then
-	make $MAKE_OPTS >log.m.1 2>log.m.2
+	if test -n "$MAKE_OPTS"; then
+		make "$MAKE_OPTS"
+	else
+		make
+	fi >log.m.1 2>log.m.2
 	rm -rf ../dest
 	mkdir -p ../dest
 	make install DESTDIR=$PWD/../dest >log.mi.1 2>log.mi.2
