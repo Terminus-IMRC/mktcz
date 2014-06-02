@@ -134,11 +134,7 @@ pack_all(){
 pack_all $TCZNAME dest
 pack_all_co(){
 	if test -n "$(eval echo \$HAVE_$1)"; then
-		rm -f $TCZNAME-$1.tcz.dep
-		if test -f $TCZNAME.tcz.dep; then
-			cp $TCZNAME.tcz.dep $TCZNAME-$1.tcz.dep
-		fi
-		echo $TCZNAME.tcz >>$TCZNAME-$1.tcz.dep
+		echo $TCZNAME.tcz >$TCZNAME-$1.tcz.dep
 		pack_all $TCZNAME-$1 dest-$1
 	fi
 }
