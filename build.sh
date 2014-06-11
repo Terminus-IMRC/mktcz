@@ -127,7 +127,7 @@ pack_all(){
 	zsyncmake $1.tcz
 
 	rm -f $1.tar.gz
-	tar czf $1.tar.gz $1.tcz $1.tcz.info $1.tcz.list $1.tcz.md5.txt $1.tcz.zsync $(test -f "$1.tcz.dep" && echo $1.tcz.dep) $PKGTARGZ $(basename $0) build.rc
+	tar czf $1.tar.gz $1.tcz $1.tcz.info $1.tcz.list $1.tcz.md5.txt $1.tcz.zsync $(test -f "$1.tcz.dep" && echo $1.tcz.dep) $(test -n "$IS_PKGTARBALL_INCLUDE" && echo $PKGTARGZ) $(basename $0) build.rc
 
 	#echo -e 'tinycore\ntinycore' | bcrypt $1.tar.gz
 }
