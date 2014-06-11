@@ -1,0 +1,8 @@
+TCZNAME=psmisc
+PKGTARGZ=$TCZNAME-22.21.tar.gz
+CONFIGURE_OPTS='--prefix=/usr/local'
+CFLAGS='-Os -pipe'
+CXXFLAGS='-Os -pipe'
+LDFLAGS='-Wl,-O1'
+MAKE_OPTS=''
+IS_PKGTARBALL_INCLUDE=1
