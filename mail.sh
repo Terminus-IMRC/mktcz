@@ -36,4 +36,5 @@ END
 $EDITOR $TMP
 
 echo "Sending mail..."
+#mutt -s "Submit $(basename $1 .tar.gz)" -a $1 -- i.can.speak.c.and.basic+picore@gmail.com <$TMP
 mutt -s "Submit $(basename $1 .tar.gz)" -a $1 -- picoresubmit@gmail.com <$TMP
