@@ -54,6 +54,8 @@ if ! test -f log.m.done; then
 	touch log.m.done
 fi
 
+find ../dest -name \*.pyc -exec rm {} \;
+
 add_file_as_licence_if_exists(){
 	if test -f $1; then
 		mkdir -p ../dest/usr/local/share/licences/$TCZNAME
