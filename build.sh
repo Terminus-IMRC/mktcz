@@ -34,7 +34,7 @@ cd $PKGDIR
 
 if ! test -f log.c.done; then
 	if test -n "$CONFIGURE_OPTS"; then
-		./configure "$CONFIGURE_OPTS"
+		./configure $CONFIGURE_OPTS
 	else
 		./configure
 	fi >log.c.1 2>log.c.2
@@ -44,7 +44,7 @@ fi
 
 if ! test -f log.m.done; then
 	if test -n "$MAKE_OPTS"; then
-		make "$MAKE_OPTS"
+		make $MAKE_OPTS
 	else
 		make
 	fi >log.m.1 2>log.m.2
