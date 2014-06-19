@@ -88,6 +88,7 @@ if ! test -f log.move.done; then
 		fi
 	}
 	move_to_another_if_exists usr/local/share/man doc
+	move_to_another_if_exists usr/local/man doc
 	move_to_another_if_exists usr/local/share/doc doc
 	move_to_another_if_exists usr/local/include dev
 	move_to_another_if_exists usr/local/share/locale locale
